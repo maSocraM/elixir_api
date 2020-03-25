@@ -1,0 +1,44 @@
+defmodule ElixirApiWeb.Auth.Guardian do
+
+    require Logger
+
+    use Guardian, otp_app: :elixir_api
+  
+    alias ElixirApi.Accounts
+  
+    def subject_for_token(user, _claims) do
+      sub = to_string(user.id)
+      {:ok, sub}
+    end
+  
+    def resource_from_claims(claims) do
+      id = claims["sub"]
+      resource = Accounts.get_user!(id)
+      {:ok,  resource}
+    end
+
+    def authenticate(email, password) do
+      with {:ok, user} <- Accounts.get_by_email(email) do
+        case validate_password(password, user.password) do
+          true ->
+            create_token(user)
+          false ->
+            {:error, :unauthorized}
+        end
+      end
+    end
+  
+    defp validate_password(password, enc_password) do
+      
+      Logger.debug "password: #{inspect(password)}"
+      Logger.debug "enc_password: #{inspect(enc_password)}"
+
+      Comeonin.Bcrypt.checkpw(password, enc_password)
+    end
+  
+    defp create_token(user) do
+      {:ok, token, _claims} = encode_and_sign(user)
+      {:ok, user, token}
+    end
+
+  end

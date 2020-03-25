@@ -2,10 +2,11 @@ use Mix.Config
 
 # Configure your database
 config :elixir_api, ElixirApi.Repo,
+  adapter: Ecto.Adapters.MySQL,
   username: "root",
   password: "",
   database: "elixir_api_test",
-  hostname: "localhost",
+  hostname: "127.0.0.1",
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,

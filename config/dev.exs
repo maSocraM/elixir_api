@@ -3,8 +3,8 @@ use Mix.Config
 # Configure your database
 config :elixir_api, ElixirApi.Repo,
   adapter: Ecto.Adapters.MySQL,
-  username: "elixir_api",
-  password: "elixir_api",
+  username: "root",
+  password: "",
   database: "elixir_api",
   hostname: "127.0.0.1",
   show_sensitive_data_on_connection_error: true,
