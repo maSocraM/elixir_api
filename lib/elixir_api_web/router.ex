@@ -13,8 +13,6 @@ defmodule ElixirApiWeb.Router do
     pipe_through :api
     post "/users/signup", UserController, :create
     post "/users/signin", UserController, :signin
-    # post "/tweets", TweetController, :create
-    # get "/tweets", TweetController, :index
   end
 
   scope "/api", ElixirApiWeb do
