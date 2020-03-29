@@ -9,6 +9,7 @@ O *stack* utilizando para o desenvolvimento deste teste foi:
 - **Sistema operacional:** GNU/Linux (Arch Linux)
 - **Banco de dados:** MariaDB 10.1
 - **Linguagem de programação:** Erlang/OTP 22 (erts-10.6.4) e Elixir 1.10.1
+- **Framework WEB:** Phoenix 1.4.16
 - **Virtualização:** Docker e docker-compose
 
 A não utilização exata deste *stack* pode trazer resultados não esperados.
@@ -485,3 +486,16 @@ Nenhum - código HTTP: 204
 
 ## 6. Experiência no desenvolvimento
 
+### 6.1. Curva de aprendizagem
+Meus conhecimentos em desenvolvimento hoje são mais focados ao paradigma orientado a objetos e, em raros casos, ao estrutural.
+Houve um certo custo de tempo como introdução na linguagem e paradigma e, como os resultados não estavam atendendo ao meu planejamento, fui direto a tutoriais para criação de APIs, que em tese foi interessante para visualização dos resultados esperados, porém trouxe impactos negativos quando ocorreu a necessidade de alteração e customização voltado aos objetivos.
+
+### 6.2. Produtividade
+Levando em conta que seguindo os tutoriais e criando a estrutura da api e primeiro endpoint não levou mais que 1h, se mostraram muito produtivos, tanto a linguagem quanto o framework.
+
+### 6.3. Dificuldades
+Conforme já dito, ocorreram dificuldades nas customizações das receitas dos tutoriais, pois o entendimento da estrutura do framework exige maior tempo de estudos, aliado também ao da linguagem, principalmente quando não se tem familiaridade com o paradigma funcional.
+
+### 6.4. Conclusões
+Se mostrou uma linguagem e framework muito produttivos, porém, eu recomendaria a criação de pequenos serviços quando o intuíto é capacitar uma equipe, pois é necessário um longo tempo de contato e estudos para poder conhecer melhor e assim conseguir tirar o melhor de ambos e também conhecer os seus limites, uma semana de dedicação parcial não foi o suficiente.
+Eu acredito que teria melhores resultados utilizando a linguagem Rusty, pelo fato de eu já ter estudado e também por ela estar dentro dos paradigmas que já é de meu domínio.
