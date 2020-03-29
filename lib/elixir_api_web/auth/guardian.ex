@@ -1,7 +1,5 @@
 defmodule ElixirApiWeb.Auth.Guardian do
 
-    require Logger
-
     use Guardian, otp_app: :elixir_api
   
     alias ElixirApi.Accounts
@@ -29,10 +27,6 @@ defmodule ElixirApiWeb.Auth.Guardian do
     end
   
     defp validate_password(password, enc_password) do
-      
-      Logger.debug "password: #{inspect(password)}"
-      Logger.debug "enc_password: #{inspect(enc_password)}"
-
       Comeonin.Bcrypt.checkpw(password, enc_password)
     end
   

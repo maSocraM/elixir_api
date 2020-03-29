@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+    db:
+        image: mariadb:10.1
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+        ports: 
+            - 3306:3306
+        volumes:
+            - ./data:/var/lib/mysql
+            - ./configs:/docker-entrypoint-initdb.d
+        restart: always
+        environment:
+            - MYSQL_INITDB_SKIP_TZINFO=1
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+        networks:
+            - shared
+networks:
+  shared:
+    external:
+      name: shared

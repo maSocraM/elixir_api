@@ -19,9 +19,25 @@ defmodule ElixirApiWeb.TweetControllerTest do
     tweet
   end
 
+  # setup %{conn: conn} do
+  #   {:ok, conn: put_req_header(conn, "accept", "application/json")}
+  # end
+
   setup %{conn: conn} do
-    {:ok, conn: put_req_header(conn, "accept", "application/json")}
-  end
+    conn = conn
+       |> put_req_header("accept", "application/json")
+       |> put_req_header("authorization", "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJlbGl4aXJfYXBpIiwiZXhwIjoxNTg3NTgyMjAxLCJpYXQiOjE1ODUxNjMwMDEsImlzcyI6ImVsaXhpcl9hcGkiLCJqdGkiOiIwYmY5OGViYi0yMjBhLTRiODgtODdiMC05NzZjZGU5YjNlZmIiLCJuYmYiOjE1ODUxNjMwMDAsInN1YiI6IjEwIiwidHlwIjoiYWNjZXNzIn0.L5TEvAengdi4cB0STLeElUS1DdLZ1DbyEHV8jKy6pkdU8I1cXhgmqfB8vuL35dfnHVQUeXTxLSBcmd0sMf0kAw")
+       # |> put_req_header("Bearer ", Phoenix.Token.sign(ElixirApiWeb.Router, "user", 1))
+    {:ok, conn: conn}
+ end
+
+
+#  build_conn
+#  |> bypass_through(YourApp.Router, [:browser, :browser_authenticated_session])
+#  |> get("/")
+#  |> Guardian.Plug.sign_in(user, token, opts)
+#  |> send_resp(200, "Flush the session")
+#  |> recycle
 
   describe "index" do
     test "lists all tweets", %{conn: conn} do

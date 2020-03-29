@@ -67,9 +67,15 @@ defmodule ElixirApi.Directory do
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_tweet(%Tweet{} = tweet, attrs) do
+  # def update_tweet(%Tweet{} = tweet, attrs) do
+  #   tweet
+  #   |> Tweet.changeset(attrs)
+  #   |> Repo.update()
+  # end
+  def update_tweet(id, attrs) do
+    tweet = self.get_tweet!(id)
     tweet
-    |> Tweet.changeset(attrs)
+    |> Tweet.changeset(tweet, attrs)
     |> Repo.update()
   end
 

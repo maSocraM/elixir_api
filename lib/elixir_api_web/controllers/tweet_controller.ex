@@ -1,6 +1,8 @@
 defmodule ElixirApiWeb.TweetController do
   use ElixirApiWeb, :controller
 
+  # require Logger
+
   alias ElixirApi.Directory
   alias ElixirApi.Directory.Tweet
 
